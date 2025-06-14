@@ -1,0 +1,4 @@
+Build/*.elf
+Build/*.map
+Build/*.hex
+Build/objects/*.o
