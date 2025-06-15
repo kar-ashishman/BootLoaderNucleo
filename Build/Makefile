@@ -1,4 +1,6 @@
 CC = arm-none-eabi-gcc
+AR = arm-none-eabi-ar
+ARFLAG = rcs
 CPU = cortex-m4
 STD = gnu11
 OPT = 0
@@ -8,12 +10,16 @@ LDFLAGS = -nostdlib -T rom.ld -Wl,-Map=final.map
 
 SOURCE := $(wildcard *.c)
 OBJ := $(patsubst %.c,objects/%.o,$(SOURCE))
+LIB := objects/lib.a
 
 all : final.elf
 	make hexdump
 
-final.elf : $(OBJ)
+final.elf : $(LIB)
 	$(CC) $(LDFLAGS) -o $@ $^
+
+$(LIB) : $(OBJ)
+	$(AR) $(ARFLAGS) $@ $^
 
 objects/%.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
@@ -30,3 +36,4 @@ hexdump : final.elf
 clean:
 	del /f *.elf *.map *.hex
 	del objects\*.o
+	del objects\*.a

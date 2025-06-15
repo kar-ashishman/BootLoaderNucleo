@@ -1,4 +1,5 @@
 Build/*.elf
 Build/*.map
 Build/*.hex
+Build/objects/*.a
 Build/objects/*.o
