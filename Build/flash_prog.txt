@@ -1,0 +1,52 @@
+1. Unlocking the Flash memory
+    After reset, the FPEC block is protected. The FLASH_CR register is not accessible in write
+    mode. An unlocking sequence should be written to the FLASH_KEYR register to open up
+    the FPEC block.
+    This sequence consists of two write cycles, where two key values (KEY1
+    and KEY2) are written to the FLASH_KEYR address
+    Any wrong sequence locks up the FPEC block and FLASH_CR register until the next reset.
+    The FPEC block and FLASH_CR register can be locked by the
+    user’s software by writing the LOCK bit of the FLASH_CR register to 1.
+    In this case, the FPEC can be unlocked by writing the correct sequence of keys into FLASH_KEYR.
+    KEY1 = 0x45670123
+    KEY2 = 0xCDEF89AB
+    wrong sequence locks up the FPEC block and FLASH_CR register until the next reset
+
+2. Main Flash memory programming
+    The main Flash memory can be programmed 16 bits at a time. The program operation is
+    started when the CPU writes a half-word into a main Flash memory address with the PG bit
+    of the FLASH_CR register set.
+    Any attempt to write data that are not half-word long will result in a bus error response from the FPEC.
+    If a read/write operation is initiated during programming, (BSY bit set),
+    the CPU stalls until the ongoing main Flash memory programming is over.
+
+    Standard programming
+        In this mode, CPU programs the main Flash memory by performing standard half-word write operations.
+        The PG bit in the FLASH_CR register must be set.
+
+        FPEC preliminarily reads the value at the addressed main Flash memory location and checks that it has been
+        erased. If not, the program operation is skipped and a warning is issued by the PGERR bit in
+        FLASH_SR register. exception to this is when 0x0000 is programmed.
+
+        The end of the program operation is indicated by the EOP bit in the FLASH_SR register
+
+    The main Flash memory programming sequence in standard mode is as follows:
+    ● Check that no main Flash memory operation is ongoing by checking the BSY bit in the
+    FLASH_SR register.
+    ● Set the PG bit in the FLASH_CR register.
+    ● Perform the data write (half-word) at the desired address.
+    ● Wait for the BSY bit to be reset.
+    ● Read the programmed value and verify.
+
+3. Page Erase
+    A page of the Flash memory can be erased using the Page Erase feature of the FPEC. To
+    erase a page, the procedure below should be followed:
+    ● Check that no Flash memory operation is ongoing by checking the BSY bit in the
+    FLASH_CR register
+    ● Set the PER bit in the FLASH_CR register
+    ● Program the FLASH_AR register to select a page to erase
+    ● Set the STRT bit in the FLASH_CR register
+    ● Wait for the BSY bit to be reset
+    ● Read the erased page and verify
+
+
