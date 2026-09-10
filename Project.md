@@ -20,18 +20,16 @@ The goal of this project :
 
 > CPU SPECIFICATIONS
 ### STM NUCLEO F446RE
-|||
 |----------|--------------------|
 |Core|Arm® 32-bit Cortex®-M4 CPU with FPU and Adaptive Real-Time Accelerator (ART Accelerator)|
 |Max Clock Frequency|180 MHz|
 |RAM|128 KB SRAM|
 |FLASH|512 KB|
 |FLASH SEGMENTS|Sector 0 - 7 : [16KB, 16KB, 16KB, 16KB, 16KB, 128KB, 128KB, 128KB]|
-|||
 
 Flash memory segments are used as follows
-
-* Sector 0 - 5 : 208KB Area for Primary flash contents
+* Sector 0 : 16KB Custom minimal bootloader
+* Sector 1 - 5 : 192KB Area for Primary flash contents
 * Sector 6 & 7 : 256KB Area for backup flash
 
 <br>
@@ -55,9 +53,9 @@ Here `-S` strips the debug information
 For an embedded CPU, the record types is either, Data or End of File. *(First Line of the hex file which defines the base address has record type 04)*
 
 **Checksum algorithm used in ihex**
-e.g. record - :0300300002337A1E  computed checksum 1E
+e.g. record - :0300300002337A1E  computed checksum 1E <br>
 sum bytes of record and store LSB - 0x03 + 0x00 + 0x30 + 0x00 + 0x02 + 0x33 + 0x7A = 0x00E2 (lsb = E2) <br>
-Checksum = 2's complement of lsb = 0x1E
+Checksum = 2's complement of lsb = 0x1E <br>
 
 <br>
 
