@@ -20,6 +20,7 @@ The goal of this project :
 
 > CPU SPECIFICATIONS
 ### STM NUCLEO F446RE
+|||
 |----------|--------------------|
 |Core|Arm® 32-bit Cortex®-M4 CPU with FPU and Adaptive Real-Time Accelerator (ART Accelerator)|
 |Max Clock Frequency|180 MHz|
@@ -78,6 +79,19 @@ We strongly recommend to follow the flow of work to re-create the project at own
 
 > 1. SETUP BUILD FRAMEWORK
 
+* compile:
+  `arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -g3 -Og -Wall -ffunction-sections -fdata-sections -Wl --gc-sections -c source.c -o source.o` <br>
+  `arm-none-eabi-gcc` = compiler <br>
+  `-mthumb` = Thumb instructions, STMF466RE boards only accept thumb instructions <br>
+  `-mfloat-abi=soft` = Create linker errors when floating points are used in software. Other options are `hard`. To use floating point, use `-mfpu=fpv4-sp-d16` <br>
+  `-g3` = create maximum debug information. other options are `g0 = No debug info`, `-g = Standard debug info` <br>
+  `-Wall` = Enable common warnings, other options are `-Wextra`, `-Werror` <br>
+  `-ffunction-sections` = Create each function in a separate section in each binary e.g. `.text.foo`, `.text.bar` <br>
+  `-fdata-sections` = Create each data in a separate section in each binary e.g. `.data.config`, `.data.counter`
+  `-Wl --gc-sections` = Remove symbols that are not used from binary
+  
+* linker:
+  
 
 
 
