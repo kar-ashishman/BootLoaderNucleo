@@ -32,6 +32,8 @@ flowchart TD
     H -->|Else| J[Authorization Failed]
 ```
 
+## Target Testing
+
 ```mermaid
 sequenceDiagram
     Client->>Target: Send 0x01 (Test Target)
@@ -39,6 +41,8 @@ sequenceDiagram
     Note over Target: LED blinks for 5 seconds
     Target-->>Client: Response 0 (Test Completed)
 ```
+
+## Getting Bootloader version
 
 ```mermaid
 sequenceDiagram
