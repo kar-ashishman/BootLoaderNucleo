@@ -131,6 +131,19 @@ flowchart TD
 
 > FLASH MEMORY ORGANIZATION FOR LINKER
 
+> FLASH PROGRAMMING SEQUENCE
+
+```mermaid
+flowchart TD
+A[start] --> B[Flash Locked] --> C[update KEYR<br>KEY1 + KEY2 sequencially] --> D{CR lock bit == 0?} --> |yes|E[Flash Unlocked]
+D --> |no<br>Wait for lock bit|D
+E --> F{Flash SR BSY set <br>Is Flash Busy?} --> |yes? Wait|F
+F --> |no|G[Set SER of CR<br>Sector Erase] --> H[Set SNB of CR<br>Program the correct sector number] --> I[set STRT of CR<br>To start sector erase] --> J[Wait for BSY]
+J --> K[Enable CR -> PG <br>Programming enable] --> L[set PSIZE<br>parallelism size] --> M[Wait for BSY] --> N[WRITE<br>Write PSIZE bytes to flash]
+N --> O[Wait for BSY] --> N
+O --> P[Lock Flash <br>CR -> LOCK]
+```
+
 
 
  
