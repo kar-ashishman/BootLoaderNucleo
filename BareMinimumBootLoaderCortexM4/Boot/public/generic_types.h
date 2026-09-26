@@ -11,4 +11,6 @@
     typedef signed short    int16_t;
     typedef signed int      int32_t;
 
+    #define DELAY_CYCLES(TIMEMS) ((uint32_t)(4000 * TIMEMS))
+
 #endif // GENERIC_TYPES_H

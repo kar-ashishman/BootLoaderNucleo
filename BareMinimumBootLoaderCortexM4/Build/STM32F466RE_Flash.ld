@@ -10,7 +10,7 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 /* attributes are R readonly, W readwrite, X executable, A allocated */
 
 MEMORY {
-    FLASH(rx) : org = 0x08000000, len = 512K
+    FLASH(rx) : org = 0x08000000, len = 16K
     SRAM(rwx) : org = 0x20000000, len = 128K
 }
 

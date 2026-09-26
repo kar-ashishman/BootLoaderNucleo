@@ -15,7 +15,7 @@ DEBUG_DIR := debug
 
 # Flags
 INCLUDES := $(foreach module,$(MODULES),-I$(module)/$(PUB_DIR))
-CFLAGS := -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -c -Wall -g
+CFLAGS := -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -c -Wall -g -Wl,--gc-sections --specs=nosys.specs
 
 # Object and archive rules per module
 define MODULE_template
