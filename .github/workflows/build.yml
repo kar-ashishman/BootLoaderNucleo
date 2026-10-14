@@ -16,13 +16,13 @@ jobs:
         
       - name: create directory and git clone
         run: |
-          mkdir -p /home/Project
-          cd /home/Project
+          mkdir -p ~/Project
+          cd ~/Project
           git clone https://github.com/your-repo/BareMinimumBootLoaderCortexM4.git .
           echo "Repository cloned successfully."
 
       - name: Build the project
         run: |
-          cd /home/Project/BootLoaderNucleo/BareMinimumBootLoaderCortexM4
+          cd ~/Project/BootLoaderNucleo/BareMinimumBootLoaderCortexM4
           make
           echo "Build completed successfully."
