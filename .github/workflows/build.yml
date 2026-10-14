@@ -17,7 +17,7 @@ jobs:
       - name: Install Toolchain Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential gcc-arm-none-eabi
+          sudo apt-get install -y build-essential gcc-arm-none-eabi qemu-system-arm
           echo "Toolchain dependencies installed successfully."
         
       # Fix 3: Updated paths to match standard GitHub workspace layouts
@@ -26,3 +26,20 @@ jobs:
           cd BareMinimumBootLoaderCortexM4
           make
           echo "Build completed successfully."
+
+      - name: Run elf on qemu
+        run: |
+          cd BareMinimumBootLoaderCortexM4
+          # & pushes the execution into the Linux background
+          qemu-system-arm -machine netduinoplus2 -nographic -kernel debug.elf &
+          QEMU_PID=$!
+          sleep 5
+          if kill -0 $QEMU_PID 2>/dev/null; then
+            echo "✅ Success! QEMU loaded debug.elf on netduinoplus2 and is running continuously."
+            
+            # Cleanly stop the background QEMU process to let the job terminate successfully
+            kill $QEMU_PID
+          else
+            echo "❌ Error: QEMU crashed, reset, or terminated abruptly after loading debug.elf."
+            exit 1
+          fi
