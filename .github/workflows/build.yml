@@ -12,8 +12,6 @@ jobs:
       # Fix 1: Use the official checkout action instead of manual git clone
       - name: Checkout Repository Code
         uses: actions/checkout@v4
-        run: |
-          echo "Repository checked out successfully."
 
       # Fix 2: Ubuntu GitHub runners already have 'git' and 'build-essential' pre-installed.
       # You only need to install the arm cross-compiler.
