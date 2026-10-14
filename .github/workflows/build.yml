@@ -2,27 +2,30 @@ name: Build Pipeline
 
 on:
   push:
+    branches: [ "main" ] # Triggers the build when you push to main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install dependencies
+      # Fix 1: Use the official checkout action instead of manual git clone
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+        run: |
+          echo "Repository checked out successfully."
+
+      # Fix 2: Ubuntu GitHub runners already have 'git' and 'build-essential' pre-installed.
+      # You only need to install the arm cross-compiler.
+      - name: Install Toolchain Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y git build-essential gcc-arm-none-eabi
-          echo "Dependencies installed successfully."
+          sudo apt-get install -y build-essential gcc-arm-none-eabi
+          echo "Toolchain dependencies installed successfully."
         
-      - name: create directory and git clone
+      # Fix 3: Updated paths to match standard GitHub workspace layouts
+      - name: Build the Project
         run: |
-          mkdir -p ~/Project
-          cd ~/Project
-          git clone https://github.com/kar-ashishman/BootLoaderNucleo.git .
-          echo "Repository cloned successfully."
-
-      - name: Build the project
-        run: |
-          cd ~/Project/BootLoaderNucleo/BareMinimumBootLoaderCortexM4
+          cd BareMinimumBootLoaderCortexM4
           make
           echo "Build completed successfully."
