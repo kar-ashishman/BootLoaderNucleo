@@ -18,7 +18,7 @@ jobs:
         run: |
           mkdir -p ~/Project
           cd ~/Project
-          git clone https://github.com/your-repo/BareMinimumBootLoaderCortexM4.git .
+          git clone https://github.com/kar-ashishman/BootLoaderNucleo.git .
           echo "Repository cloned successfully."
 
       - name: Build the project
