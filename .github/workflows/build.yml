@@ -29,7 +29,7 @@ jobs:
 
       - name: Run elf on qemu
         run: |
-          cd BareMinimumBootLoaderCortexM4
+          cd BareMinimumBootLoaderCortexM4/debug
           # & pushes the execution into the Linux background
           qemu-system-arm -machine netduinoplus2 -nographic -kernel debug.elf &
           QEMU_PID=$!
