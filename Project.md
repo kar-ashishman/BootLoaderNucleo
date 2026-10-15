@@ -7,7 +7,7 @@ Server and client communication is authorized using a simple SeedKey algorithm a
 The goal of this project : 
 * appreciate the Flash memory updation schedules of a cortex M4 cpu.
 * develop startup routine and linker script for cortex M4 architecture.
-* develop a very simple custom bootloader protocol for robust communication between server and client
+* develop a very simple custom bootloader protocol for robust communication between server and client 
 
 <br>
 
