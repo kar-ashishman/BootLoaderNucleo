@@ -14,7 +14,7 @@ The goal of this project :
 > HARDWARE USED
 
 1. STM NUCLEO F446RE board as the client
-2. A computer acting as a server
+2. A computer acting as a server.
 
 <br>
 
