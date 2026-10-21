@@ -29,6 +29,7 @@
     #define     START_ADDR  		    0x08060000UL    /* Sector 6 */
     #define     FLASH_BASE			    0x40023C00UL
     #define     FLASH                   ((FLASH_TypeDef *) FLASH_BASE)
+    #define     FLASH_SECTOR_7_SIZE     (128 * 1024) // 128 KB = 131,072 bytes
 
     /*RCC base address type-casted to the type RCC_Reg_def_t */
     #define                             RCC ((volatile RCC_Reg_def_t*)RCC_BASE_ADDRESS)

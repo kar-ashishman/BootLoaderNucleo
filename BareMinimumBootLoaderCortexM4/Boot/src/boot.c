@@ -8,8 +8,11 @@ DESCRIPTION: Boot implementation
 #include  "gpio_proto.h"
 #include  "gpio_types.h"
 #include  "uart_proto.h"
+#include  "boot_defs.h"
 
 uint8_t user_request_process(gpio_config_t* OnBoardLed, uint8_t req);
+#define RESET_HANDLER_ADDRESS 0x08004004
+void (*func_ptr)(void);
 
 int main() {
     uint32_t delay_cycles = DELAY_CYCLES(100);
@@ -44,6 +47,11 @@ int main() {
         // Wait for uart data
         uart_data = uart_receive();
         user_request_process(&test_pin, uart_data);
+        if(uart_data == FLASH_REQUEST) {
+            uint32_t pointer = *(volatile uint32_t*)((RESET_HANDLER_ADDRESS));
+		    func_ptr = (uint32_t *)pointer;
+		    (func_ptr)();
+        }
     }
     return 0;
 }

@@ -14,6 +14,10 @@
     #define UNAUTHENTICATED     10
     #define AUTHENTICATED       11
 
+	#define SECTOR_1_ADDR 		0x08004000
+	#define SECTOR_6_ADDR 		0x08040000
+	#define SIZE_PRIMARY_FLASH 	240*1024
+
     #define AUTH_MAGIC_NUMBER   0x12345678
 
 #endif //BOOT_DEFS_H
