@@ -178,7 +178,7 @@ class ClientApp:
                                 error_counter = error_counter + 1
                             else:
                                 print(f"NACK recieved - resend")
-                                error_counter = error_counter + 1
+                                return
                         if error_counter != 0:
                             print(f"{ALERT}NACK from target , Can't flash software.{RESET}")
                             return

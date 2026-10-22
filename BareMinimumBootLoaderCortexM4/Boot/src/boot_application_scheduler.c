@@ -142,7 +142,7 @@ void flash()
         }
         num = ((uint32_t)buffer[0] << 24) | ((uint32_t)buffer[1] << 16) |
         		        ((uint32_t)buffer[2] << 8) | (uint32_t)buffer[3];
-
+        //num = num & 0x53;
         if(check_crc(num,0b10101010)){
 
         	// reset error counter after we receive good frame
@@ -162,7 +162,7 @@ void flash()
             uart_write(0);
         }
         else{
-            if(error_counter > 5){
+            if(error_counter >= 4){
             	//erase primary flash
             	erase_primary();
             	copy_sector((uint32_t)SECTOR_6_ADDR,(uint32_t)SECTOR_1_ADDR);
