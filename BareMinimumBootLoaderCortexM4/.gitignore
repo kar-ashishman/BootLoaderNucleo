@@ -1,4 +1,7 @@
 # Ignore build directories
 /debug/
+/Boot/bin/
+/Build/bin/
+/HAL/Bin/
 
 
