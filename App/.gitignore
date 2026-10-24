@@ -5,6 +5,8 @@
 /Src/bin/
 /hal/bin/
 /app/bin/
+/.metadata/
+/.settings/
 
 *.launch
 .cproject
