@@ -1,0 +1,7 @@
+# Ignore build directories
+/Debug/
+/Build/
+/Inc/
+
+# Ignore files
+BaremetalBootloader Debug.launch

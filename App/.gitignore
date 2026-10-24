@@ -1,0 +1,12 @@
+# Ignore build directories
+/Debug/
+/Inc/
+/Startup/
+/Src/bin/
+/hal/bin/
+/app/bin/
+
+*.launch
+.cproject
+.project
+

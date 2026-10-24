@@ -1,0 +1,50 @@
+!SESSION 2026-05-10 05:11:47.701 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-05-10 05:12:35.831
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-05-10 05:12:35.838
+!MESSAGE Log4j2 initialized with config file C:\Users\niral\STM32CubeIDE\workspace_1.16.0\dummy1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-05-10 05:12:40.812
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2026-05-10 05:13:01.932 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\niral\STM32CubeIDE\workspace_1.16.0\dummy1\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\niral\STM32CubeIDE\workspace_1.16.0\dummy1\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-05-10 05:13:12.838
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-05-10 05:13:12.840
+!MESSAGE Log4j2 initialized with config file C:\Users\niral\STM32CubeIDE\workspace_1.16.0\dummy1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-05-10 05:13:18.965
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.jobs 2 2 2026-05-10 05:13:26.922
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.Workbench$39
+!SESSION 2026-05-10 05:13:28.573 -----------------------------------------------
+eclipse.buildId=Version 1.16.0
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  C:\Users\niral\STM32CubeIDE\workspace_1.16.0\dummy1\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\niral\STM32CubeIDE\workspace_1.16.0\dummy1\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-05-10 05:13:41.351
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-05-10 05:13:41.354
+!MESSAGE Log4j2 initialized with config file C:\Users\niral\STM32CubeIDE\workspace_1.16.0\dummy1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-05-10 05:13:47.633
+!MESSAGE Started RMI Server, listening on port 41337
